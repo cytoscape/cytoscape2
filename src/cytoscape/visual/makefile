@@ -5,7 +5,7 @@
 # $Author$
 #-------------------------------------------------------------------------
 
-JC=javac -source 1.4
+JC=javac
 
 .SUFFIXES: .java .class
 .java.class: 
@@ -53,4 +53,3 @@ clean:
 	- (cd ui; make clean)
 	- (cd parsers; make clean)
 	- (cd tests; make clean)
-	- (cd unitTests; make clean)

@@ -91,7 +91,6 @@ test: objs
 	(cd data/servers/unitTests; make)
 	(cd data/synonyms/unitTests; make)
 	(cd data/synonyms/readers/unitTests; make)
-	(cd visual/unitTests; make)
 
 clean:
 	- rm *.class core
@@ -110,7 +109,6 @@ clean:
 	- (cd util/unitTests; make clean)
 	- (cd vizmap; make clean)
 	- (cd vizmap/unitTests; make clean)
-	- (cd visual; make clean)
 
 #
 # --- version
