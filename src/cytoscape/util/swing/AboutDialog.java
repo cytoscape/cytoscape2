@@ -36,6 +36,7 @@ package cytoscape.util.swing;
 
 import cytoscape.Cytoscape;
 
+import cytoscape.logger.CyLogger;
 import cytoscape.util.OpenBrowser;
 
 import java.io.IOException;
@@ -57,6 +58,7 @@ import javax.swing.event.HyperlinkListener;
 public class AboutDialog extends javax.swing.JDialog implements HyperlinkListener {
 	// Singleton.
 	private static final AboutDialog about;
+	private static CyLogger logger = CyLogger.getLogger(AboutDialog.class);
 
 	static {
 		about = new AboutDialog(Cytoscape.getDesktop(), true);
@@ -94,7 +96,7 @@ public class AboutDialog extends javax.swing.JDialog implements HyperlinkListene
 			about.setVisible(true);
 		} catch (IOException e) {
 			about.mainEditorPane.setText("Could not connect to " + target.toString());
-			e.printStackTrace();
+			logger.warn("Could not connect to " + target.toString(), e);
 			about.pack();
 			about.repaint();
 			about.setVisible(true);
@@ -239,7 +241,7 @@ public class AboutDialog extends javax.swing.JDialog implements HyperlinkListene
 		try {
 			OpenBrowser.openURL(url);
 		} catch (Exception err) {
-			err.printStackTrace();
+			logger.warn("Unable to open browser for "+url.toString(), err);
 		}
 	}
 

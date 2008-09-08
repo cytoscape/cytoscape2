@@ -115,7 +115,6 @@ public class AnnotationFlatFileReader {
 		try {
 			System.arraycopy(entireFile, 0, lines, 0, lines.length);
 		} catch (Exception e) {
-			e.printStackTrace(System.err);
 			throw e;
 		}
 
@@ -151,8 +150,7 @@ public class AnnotationFlatFileReader {
 				fullText = reader.getText();
 			}
 		} catch (Exception e0) {
-			CyLogger.getLogger().warn("-- Exception while reading ontology flat file " + filename);
-			CyLogger.getLogger().warn(e0.getMessage());
+			CyLogger.getLogger().warn("-- Exception while reading ontology flat file " + filename, e0);
 
 			return;
 		}
